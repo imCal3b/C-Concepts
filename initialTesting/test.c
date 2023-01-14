@@ -25,6 +25,19 @@ void printInput() {
     printf("readable text characters: %d",count);
 }
 
+void charCount() {
+    printf("input character to search for: ");
+
+    int chSrch = getchar();
+
+    int ch = 0, count = 0;
+    while (ch != '\n') {
+        ch = getchar();
+        
+        if (ch == chSrch) count++;
+    }
+}
+
 //________________________________________________________________//
 int main() {
 
