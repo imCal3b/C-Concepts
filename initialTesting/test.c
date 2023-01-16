@@ -22,20 +22,29 @@ void printInput() {
         if (isspace(ch) == 0) count++;
     }
 
-    printf("readable text characters: %d",count);
+    printf("readable text characters: %d \n",count);
 }
 
-void charCount() {
-    printf("input character to search for: ");
+struct list {
+    
+}
 
-    int chSrch = getchar();
+void binaryConvert() {
+    int input;
 
-    int ch = 0, count = 0;
-    while (ch != '\n') {
-        ch = getchar();
-        
-        if (ch == chSrch) count++;
+printf("input an integer: ");
+    scanf("%d", &input);
+
+    int bin;
+    while (input >= 0) {
+        bin = input%2;
+        input/=2;
+
+        printf("%d",bin);
+
+        if (input < 2) return;
     }
+
 }
 
 //________________________________________________________________//
@@ -57,6 +66,7 @@ int main() {
     // double dNum = 123.4567890123456;
   
     printInput();
+    binaryConvert();
     
     return 0;
 }
