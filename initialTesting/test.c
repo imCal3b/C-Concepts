@@ -25,14 +25,10 @@ void printInput() {
     printf("readable text characters: %d \n",count);
 }
 
-struct list {
-    
-}
-
 void binaryConvert() {
     int input;
 
-printf("input an integer: ");
+    printf("input an integer: ");
     scanf("%d", &input);
 
     int bin;
