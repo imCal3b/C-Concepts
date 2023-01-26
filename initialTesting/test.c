@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <ctype.h> // library for isspace() function
 
+/* NOTE: By stating the function signature before main(), we can implement the code
+below the main function */
 int count(int x, int y);
-
 void printInput();
-
 void binaryConvert();
+int arraySum(int *arr, size_t length);
 
-//________________________________________________________________//
 int main() {
 
     printf("hello \n");
@@ -17,6 +17,10 @@ int main() {
   
     printInput();
     binaryConvert();
+
+    int intArray[] = {1,2,3,4,5};
+    size_t arr_len = sizeof(intArray) / sizeof(int);
+    printf("sum: %d | arr size: %llu | int size: %llu \n", arraySum(intArray,arr_len), sizeof(intArray), sizeof(int));
     
     return 0;
 }
@@ -48,19 +52,35 @@ void binaryConvert() {
     //not working properly
     int input;
 
-    printf("input an integer: ");
+    printf("input an integer between 0-255: ");
     scanf("%d", &input);
 
-    int bin;
-    while (input >= 0) {
-        bin = input%2;
-        input/=2;
+    if (input < 0 || input > 255) return;
 
-        printf("%d",bin);
+    char bin[] = {'0','b','0','0','0','0','0','0','0','0','\0'};
+    size_t length = sizeof(bin) / sizeof(char);
+    char *index = bin + length - 1;
 
-        if (input < 2) return;
+    while (input > 0 || index > (bin+1)) {
+        char bit = input % 2;
+        printf("bit: %c \n", bit);
+        *index = bit;
+        input /= 2;
+        index--;
     }
 
+    puts(bin);
+    //printf("binary: %s \n",bin);
+}
+
+int arraySum(int *arr, size_t length) {
+    int sum = 0;
+    for (int i=0;i < length; i++) {
+        sum += *arr;
+        arr++;
+    }
+
+    return sum;
 }
 
 //  NOTES
