@@ -1,6 +1,26 @@
 #include <stdio.h>
 #include <ctype.h> // library for isspace() function
 
+int count(int x, int y);
+
+void printInput();
+
+void binaryConvert();
+
+//________________________________________________________________//
+int main() {
+
+    printf("hello \n");
+
+    int val = count(10,13);
+    printf("count return | %d \n", val);
+  
+    printInput();
+    binaryConvert();
+    
+    return 0;
+}
+
 /* function decleration must come before the call to the
 main() function. */
 int count(int x, int y) {
@@ -9,7 +29,6 @@ int count(int x, int y) {
 
 /* function takes a user input and returns the text typed as well as the
 number of non white space characters in the typed string. 
-
 pre-conditions: function collapses when the return character '\n' is detected. */
 void printInput() {
     printf("input text: ");
@@ -26,6 +45,7 @@ void printInput() {
 }
 
 void binaryConvert() {
+    //not working properly
     int input;
 
     printf("input an integer: ");
@@ -43,14 +63,8 @@ void binaryConvert() {
 
 }
 
-//________________________________________________________________//
-int main() {
-
-    printf("hello \n");
-
-    int val = count(10,13);
-    printf("count return | %d \n", val);
-    
+//  NOTES
+//________________________________________________________________
     /* a floating point type holds a decimal or real number
     to 7 significant digits. It doesnt matter where the 
     decimal is (142480.0 or 0.0000018248), a float variable
@@ -60,10 +74,3 @@ int main() {
     /* a double has similar characteristics to a floating point
     number, however, a double type maintains 15 significant digits. */
     // double dNum = 123.4567890123456;
-  
-    printInput();
-    binaryConvert();
-    
-    return 0;
-}
-
